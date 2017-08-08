@@ -73,3 +73,4 @@ This project is licensed under the Apache License - see the [LICENSE.md](LICENSE
 ## Acknowledgments
 
 This project is a Lazy Boy's way of keeping track of new job opportunities.
+
