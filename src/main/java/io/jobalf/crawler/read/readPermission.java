@@ -36,14 +36,12 @@ public class readPermission implements readRobot
 	
 	public ArrayList<String> getBot()
 	{
+		_bot = new ArrayList<String>();
 		for(int i=0; i<botsContents.length; i++)
 		{
-			System.err.println(botsContents[i]);
-//			if(botsContents[i].equalsIgnoreCase("User-agent:"))
-			if(botsContents[i].toString() == "User-agent:")
+			if(botsContents[i].toLowerCase().contains("user-agent:"))
 			{
-				System.err.println("getBot");
-				_bot.add(botsContents[i].substring(botsContents[i].indexOf("User-agent:", 11)));
+				_bot.add(botsContents[i].substring(12));
 			}
 		}
 		
@@ -52,11 +50,13 @@ public class readPermission implements readRobot
 	
 	public ArrayList<String> getDisallowedPath() 
 	{
+		_disAllowedPath = new ArrayList<String>();
 		for(int i=0; i<botsContents.length; i++)
 		{
 			if(botsContents[i].equalsIgnoreCase("Disallow:"))
 			{
-				_disAllowedPath.add(botsContents[i].substring(botsContents[i].indexOf("Disallow:", 9)));
+				_disAllowedPath.add(botsContents[i].substring(9));
+				//	_disAllowedPath.add(botsContents[i].substring(botsContents[i].indexOf("Disallow:", 9)));
 			}
 		}
 		
